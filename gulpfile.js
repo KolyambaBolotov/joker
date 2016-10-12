@@ -3,8 +3,17 @@ var gulp = require('gulp'),
 	watch = require('gulp-watch'),
 	livereload = require('gulp-livereload'),
 	connect = require('gulp-connect'),
-	rigger = require('gulp-rigger');
+	rigger = require('gulp-rigger'),
+  path = require('path'),
+  less = require('gulp-less'),
+  autoprefixer = require('gulp-autoprefixer');
 
+
+gulp.task('less', function () {
+  return gulp.src('less/style.less')
+    .pipe(less())
+    .pipe(gulp.dest('css/'));
+});
 
 gulp.task('connect', function() {
   connect.server({
@@ -22,12 +31,15 @@ gulp.task('concat', function () {
     .pipe(connect.reload());
 });
 
-// html go
-/*gulp.task('html', function () {
-  return gulp.src('index.html')
-    .pipe(gulp.dest('app'))
-    
-});*/
+gulp.task('prefix', () =>
+    gulp.src('app/css/style.css')
+        .pipe(autoprefixer({
+            browsers: ['last 5 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('app/css'))
+);
+
 
 
 gulp.task('html', function () {
@@ -39,12 +51,14 @@ gulp.task('html', function () {
 });
 
 
-gulp.task('watch', function () {/*
-	livereload.listen();*/
+gulp.task('watch', function () {
 	gulp.watch('css/*.css', ['concat']);
-	gulp.watch(['*.html', 'templates/*.html'], ['html']);
+  gulp.watch('index.html', ['html']);
+  gulp.watch('less/style.less', ['less']);
+  gulp.watch('style.css', ['prefix']);
+
 });
 
-gulp.task('default', ['connect', 'concat', 'html', 'watch']);
+gulp.task('default', [ 'connect','less', 'concat', 'prefix', 'html', 'watch']);
 
 

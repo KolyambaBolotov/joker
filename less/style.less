@@ -1,0 +1,26 @@
+@colorDef: #f1f1f1;
+@colorwhite: #fff;
+
+.upper_case(){
+	text-transform: uppercase;
+} 
+
+body {
+	background: @colorDef;
+}
+.container{
+	width: 900px;
+	margin: 0 auto;
+	// background: @colorDef;
+}
+.header{
+	height: 80px;
+	background: @colorwhite;
+	&__menu{
+		text-align: right;
+		&__item{
+			display: inline-block;
+			.upper_case;
+		}
+	}
+}
