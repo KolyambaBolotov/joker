@@ -22,7 +22,7 @@ body {
 	width: 99.99999%;
 }
 .container{
-	width: 93.75%;
+	max-width: 900px;
 	margin: 0 auto;
 	// background: @colorDef;
 	font-size: 0;
@@ -37,12 +37,12 @@ body {
 	&__menu{
 		margin: 26px 0 0 0;
 		padding:7px 16px;
-		width: 93.75%;
+		max-width: 900px;
 		text-align: right;
 		margin: 0 auto;
 		&__item{
 			display: inline-block;
-			.upper_case;
+			
 		}
 	}
 }
@@ -72,9 +72,27 @@ body {
 
 .sidebar{
 	max-width:270px; 
-	background: @colorwhite;
 	display: inline-block;
 	font-size: 16px;
 	padding: 20px;
 	margin-left: 15px;
+	&__block{
+		margin:20px;
+		background: @colorwhite;
+		width: 100%;
+		padding: 20px;
+		&--red{
+			background: red;
+			color: #f09288;
+		}
+	}
+	&__menu{
+		&__item{
+			padding: 6px 0;
+			border-bottom: 1px solid #f1f1f1;
+			&--lightred{
+				border-bottom: 1px solid #f09288;
+			}
+		}
+	}
 }

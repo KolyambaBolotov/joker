@@ -15,7 +15,7 @@ body {
   width: 99.99999%;
 }
 .container {
-  width: 93.75%;
+  max-width: 900px;
   margin: 0 auto;
   font-size: 0;
 }
@@ -30,13 +30,12 @@ body {
 .header__menu {
   margin: 26px 0 0 0;
   padding: 7px 16px;
-  width: 93.75%;
+  max-width: 900px;
   text-align: right;
   margin: 0 auto;
 }
 .header__menu__item {
   display: inline-block;
-  text-transform: uppercase;
 }
 .content {
   margin: 15px;
@@ -59,9 +58,25 @@ body {
 }
 .sidebar {
   max-width: 270px;
-  background: #fff;
   display: inline-block;
   font-size: 16px;
   padding: 20px;
   margin-left: 15px;
+}
+.sidebar__block {
+  margin: 20px;
+  background: #fff;
+  width: 100%;
+  padding: 20px;
+}
+.sidebar__block--red {
+  background: red;
+  color: #f09288;
+}
+.sidebar__menu__item {
+  padding: 6px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+.sidebar__menu__item--lightred {
+  border-bottom: 1px solid #f09288;
 }
